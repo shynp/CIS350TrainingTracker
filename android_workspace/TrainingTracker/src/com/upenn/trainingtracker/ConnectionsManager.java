@@ -36,14 +36,14 @@ import android.widget.Toast;
 
 public class ConnectionsManager 
 {
-	private Activity activity;
+	private Context activity;
 	private static ConnectionsManager instance;
 	
-	private ConnectionsManager(Activity activity)
+	private ConnectionsManager(Context activity)
 	{
 		this.activity = activity;
 	}
-	public static ConnectionsManager getInstance(Activity activity)
+	public static ConnectionsManager getInstance(Context activity)
 	{
 		if (instance == null)
 		{
@@ -65,7 +65,7 @@ public class ConnectionsManager
 	{
 		ConnectivityManager connManager = (ConnectivityManager) this.activity.getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo gConn = connManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
-		return gConn.isConnected();
+		return (gConn != null && gConn.isConnected());
 	}
 	public void openWifiSettings(Activity activity)
 	{
@@ -295,4 +295,5 @@ public class ConnectionsManager
         }
         return answer;
     }
+
 }

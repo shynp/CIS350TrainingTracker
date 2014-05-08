@@ -9,15 +9,85 @@ package com.upenn.trainingtracker;
 
 public final class R {
     public static final class array {
-        public static final int service_types=0x7f070000;
+        public static final int filter_types=0x7f090001;
+        public static final int service_types=0x7f090000;
     }
     public static final class attr {
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int debugDraw=0x7f010003;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int horizontalSpacing=0x7f010000;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int layout_horizontalSpacing=0x7f010005;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int layout_newLine=0x7f010004;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int layout_verticalSpacing=0x7f010006;
+        /** <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>horizontal</code></td><td>0</td><td></td></tr>
+<tr><td><code>vertical</code></td><td>1</td><td></td></tr>
+</table>
+         */
+        public static final int orientation=0x7f010002;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int verticalSpacing=0x7f010001;
     }
     public static final class color {
-        public static final int background_blue=0x7f040000;
-        public static final int background_gray=0x7f040001;
-        public static final int shadow_gray=0x7f040002;
-        public static final int text_light_blue=0x7f040003;
+        public static final int background_blue=0x7f060000;
+        public static final int background_gray=0x7f060001;
+        public static final int selected_blue=0x7f060005;
+        public static final int shadow_gray=0x7f060002;
+        public static final int tag_button_blue=0x7f060004;
+        public static final int text_light_blue=0x7f060003;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -26,8 +96,8 @@ public final class R {
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f050000;
-        public static final int activity_vertical_margin=0x7f050001;
+        public static final int activity_horizontal_margin=0x7f070000;
+        public static final int activity_vertical_margin=0x7f070001;
     }
     public static final class drawable {
         public static final int btn_crop_operator=0x7f020000;
@@ -36,71 +106,115 @@ public final class R {
         public static final int camera_crop_width=0x7f020003;
         public static final int check_out_view_bin_background=0x7f020004;
         public static final int dog_thumb=0x7f020005;
-        public static final int gradient_bg=0x7f020006;
-        public static final int gradient_bg_hover=0x7f020007;
-        public static final int ic_launcher=0x7f020008;
-        public static final int ic_rotate_left=0x7f020009;
-        public static final int ic_rotate_right=0x7f02000a;
-        public static final int image_bg=0x7f02000b;
-        public static final int indicator_autocrop=0x7f02000c;
-        public static final int list_selector=0x7f02000d;
-        public static final int log_in_background=0x7f02000e;
-        public static final int log_in_sel=0x7f02000f;
-        public static final int log_in_selector=0x7f020010;
-        public static final int log_in_unsel=0x7f020011;
-        public static final int login_background_rectangle=0x7f020012;
-        public static final int lookup_sel=0x7f020013;
-        public static final int lookup_selector=0x7f020014;
-        public static final int lookup_unsel=0x7f020015;
-        public static final int rounded_text_field=0x7f020016;
-        public static final int roundex_text_field=0x7f020017;
-        public static final int selector_crop_button=0x7f020018;
+        public static final int edit_icon=0x7f020006;
+        public static final int filter_button=0x7f020007;
+        public static final int first_and_second=0x7f020008;
+        public static final int first_and_third=0x7f020009;
+        public static final int first_second_and_third=0x7f02000a;
+        public static final int generic_button_selected=0x7f02000b;
+        public static final int generic_button_selector=0x7f02000c;
+        public static final int generic_button_unselected=0x7f02000d;
+        public static final int gradient_bg=0x7f02000e;
+        public static final int gradient_bg_hover=0x7f02000f;
+        public static final int history_widget_aborted=0x7f020010;
+        public static final int history_widget_background=0x7f020011;
+        public static final int history_widget_failed=0x7f020012;
+        public static final int history_widget_passed=0x7f020013;
+        public static final int history_widget_planned=0x7f020014;
+        public static final int ic_launcher=0x7f020015;
+        public static final int ic_rotate_left=0x7f020016;
+        public static final int ic_rotate_right=0x7f020017;
+        public static final int image_bg=0x7f020018;
+        public static final int indicator_autocrop=0x7f020019;
+        public static final int list_selector=0x7f02001a;
+        public static final int log_in_background=0x7f02001b;
+        public static final int log_in_sel=0x7f02001c;
+        public static final int log_in_selector=0x7f02001d;
+        public static final int log_in_unsel=0x7f02001e;
+        public static final int login_background_rectangle=0x7f02001f;
+        public static final int lookup_sel=0x7f020020;
+        public static final int lookup_selector=0x7f020021;
+        public static final int lookup_unsel=0x7f020022;
+        public static final int record_session_button_selector=0x7f020023;
+        public static final int record_session_sel=0x7f020024;
+        public static final int record_session_unsel=0x7f020025;
+        public static final int rounded_text_field=0x7f020026;
+        public static final int roundex_text_field=0x7f020027;
+        public static final int second=0x7f020028;
+        public static final int second_and_third=0x7f020029;
+        public static final int selector_crop_button=0x7f02002a;
+        public static final int session_widget_background=0x7f02002b;
+        public static final int session_widget_buttons=0x7f02002c;
+        public static final int tag_button=0x7f02002d;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a002b;
-        public static final int addNewDogButtonID=0x7f0a0005;
-        public static final int breedID=0x7f0a0002;
-        public static final int button1=0x7f0a001d;
-        public static final int categoryLayout=0x7f0a0006;
-        public static final int categorySelectorID=0x7f0a0009;
-        public static final int checkOutParentView=0x7f0a0007;
-        public static final int checkOutScrollBin=0x7f0a000a;
-        public static final int checkOutScrollBinOld=0x7f0a000d;
-        public static final int checkOutSuperParent=0x7f0a0008;
-        public static final int checkoutButton=0x7f0a0028;
-        public static final int createAccountButtonID=0x7f0a0013;
-        public static final int dateSelectorTextViewID=0x7f0a0001;
-        public static final int discard=0x7f0a0015;
-        public static final int dogFilterTextID=0x7f0a001c;
-        public static final int dogImageID=0x7f0a0004;
-        public static final int dogNameTextID=0x7f0a001b;
-        public static final int emailID=0x7f0a0011;
-        public static final int image=0x7f0a0014;
-        public static final int itemSwitchAccountID=0x7f0a002a;
-        public static final int itemSyncID=0x7f0a0029;
-        public static final int list=0x7f0a001e;
-        public static final int lookupLayout=0x7f0a0026;
-        public static final int nameID=0x7f0a0000;
-        public static final int optionsCheckWidget=0x7f0a0023;
-        public static final int optionsCheckWidgetText=0x7f0a0022;
-        public static final int optionsSpinnerID=0x7f0a0025;
-        public static final int optionsTextID=0x7f0a0024;
-        public static final int password=0x7f0a0021;
-        public static final int passwordID=0x7f0a0010;
-        public static final int phoneID=0x7f0a0012;
-        public static final int pressValuesButton=0x7f0a000c;
-        public static final int profileImageID=0x7f0a001a;
-        public static final int randomID=0x7f0a0019;
-        public static final int rotateLeft=0x7f0a0016;
-        public static final int rotateRight=0x7f0a0017;
-        public static final int save=0x7f0a0018;
-        public static final int selectedLayout=0x7f0a0027;
-        public static final int serviceTypeID=0x7f0a0003;
-        public static final int submitPlansButton=0x7f0a000b;
-        public static final int tableLayoutBin=0x7f0a000e;
-        public static final int textView1=0x7f0a001f;
-        public static final int userNmeID=0x7f0a000f;
-        public static final int username=0x7f0a0020;
+        public static final int action_settings=0x7f050040;
+        public static final int addNewDogButtonID=0x7f050007;
+        public static final int bin=0x7f050037;
+        public static final int breedID=0x7f050004;
+        public static final int button1=0x7f05001f;
+        public static final int categoryLayout=0x7f050008;
+        public static final int categorySelectorID=0x7f05000b;
+        public static final int checkOutParentView=0x7f050009;
+        public static final int checkOutProgressView=0x7f05000d;
+        public static final int checkOutScrollBin=0x7f05000c;
+        public static final int checkOutScrollBinOld=0x7f05000f;
+        public static final int checkOutSuperParent=0x7f05000a;
+        public static final int checkoutButton=0x7f05003d;
+        public static final int collapseAllID=0x7f050042;
+        public static final int collapseID=0x7f050025;
+        public static final int createAccountButtonID=0x7f050015;
+        public static final int date=0x7f050027;
+        public static final int dateSelectorTextViewID=0x7f050003;
+        public static final int delete=0x7f050035;
+        public static final int discard=0x7f050017;
+        public static final int dogFilterTextID=0x7f05001e;
+        public static final int dogImageID=0x7f050006;
+        public static final int dogNameTextID=0x7f05001d;
+        public static final int editPlanButton=0x7f050036;
+        public static final int emailID=0x7f050013;
+        public static final int failure=0x7f050034;
+        public static final int filterBinID=0x7f050023;
+        public static final int filterTypeSpinnerID=0x7f050022;
+        public static final int historyFilterID=0x7f050021;
+        public static final int horizontal=0x7f050000;
+        public static final int image=0x7f050016;
+        public static final int infoTableID=0x7f050026;
+        public static final int itemSwitchAccountID=0x7f05003e;
+        public static final int itemSyncID=0x7f05003f;
+        public static final int key=0x7f050039;
+        public static final int list=0x7f050020;
+        public static final int lookupLayout=0x7f05003b;
+        public static final int nameID=0x7f050002;
+        public static final int optionsCheckWidget=0x7f050030;
+        public static final int optionsCheckWidgetText=0x7f05002f;
+        public static final int optionsSpinnerID=0x7f050032;
+        public static final int optionsTextID=0x7f050031;
+        public static final int password=0x7f05002e;
+        public static final int passwordID=0x7f050012;
+        public static final int phoneID=0x7f050014;
+        public static final int planLayout=0x7f05002a;
+        public static final int profileImageID=0x7f05001c;
+        public static final int randomID=0x7f05001b;
+        public static final int removeAllID=0x7f050041;
+        public static final int resultsBin=0x7f050029;
+        public static final int rotateLeft=0x7f050018;
+        public static final int rotateRight=0x7f050019;
+        public static final int save=0x7f05001a;
+        public static final int selectedLayout=0x7f05003c;
+        public static final int serviceTypeID=0x7f050005;
+        public static final int submitPlansButton=0x7f05000e;
+        public static final int success=0x7f050033;
+        public static final int tableID=0x7f05002b;
+        public static final int tableLayoutBin=0x7f050010;
+        public static final int tableRow1=0x7f050038;
+        public static final int textView1=0x7f05002c;
+        public static final int title=0x7f050024;
+        public static final int trainerName=0x7f050028;
+        public static final int userNmeID=0x7f050011;
+        public static final int username=0x7f05002d;
+        public static final int value=0x7f05003a;
+        public static final int vertical=0x7f050001;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -112,29 +226,40 @@ public final class R {
         public static final int cropimage=0x7f030006;
         public static final int dog_profile_widget=0x7f030007;
         public static final int dog_selector_layout=0x7f030008;
-        public static final int log_in_layout=0x7f030009;
-        public static final int lookup_selected_widget=0x7f03000a;
-        public static final int lookup_widget=0x7f03000b;
-        public static final int options_check_widget=0x7f03000c;
-        public static final int options_widget=0x7f03000d;
-        public static final int recover_account_layout=0x7f03000e;
-        public static final int training_selector_layout=0x7f03000f;
+        public static final int history_layout=0x7f030009;
+        public static final int history_widget=0x7f03000a;
+        public static final int log_in_layout=0x7f03000b;
+        public static final int lookup_selected_widget=0x7f03000c;
+        public static final int lookup_widget=0x7f03000d;
+        public static final int options_check_widget=0x7f03000e;
+        public static final int options_widget=0x7f03000f;
+        public static final int recover_account_layout=0x7f030010;
+        public static final int session_category_widget=0x7f030011;
+        public static final int session_failure_button=0x7f030012;
+        public static final int session_layout=0x7f030013;
+        public static final int session_success_button=0x7f030014;
+        public static final int session_table_row=0x7f030015;
+        public static final int spinner_item_layout=0x7f030016;
+        public static final int training_param_selector_layout=0x7f030017;
+        public static final int training_selector_layout=0x7f030018;
     }
     public static final class menu {
-        public static final int dog_selector_menu=0x7f090000;
-        public static final int log_in_menu=0x7f090001;
-        public static final int main=0x7f090002;
+        public static final int dog_selector_menu=0x7f0b0000;
+        public static final int log_in_menu=0x7f0b0001;
+        public static final int main=0x7f0b0002;
+        public static final int selector_menu=0x7f0b0003;
+        public static final int session_menu=0x7f0b0004;
     }
     public static final class string {
-        public static final int action_settings=0x7f060001;
-        public static final int app_name=0x7f060000;
-        public static final int cancel=0x7f060003;
-        public static final int hello_world=0x7f060002;
-        public static final int no_storage_card=0x7f060007;
-        public static final int not_enough_space=0x7f060008;
-        public static final int preparing_card=0x7f060006;
-        public static final int save=0x7f060004;
-        public static final int saving_image=0x7f060005;
+        public static final int action_settings=0x7f080001;
+        public static final int app_name=0x7f080000;
+        public static final int cancel=0x7f080003;
+        public static final int hello_world=0x7f080002;
+        public static final int no_storage_card=0x7f080007;
+        public static final int not_enough_space=0x7f080008;
+        public static final int preparing_card=0x7f080006;
+        public static final int save=0x7f080004;
+        public static final int saving_image=0x7f080005;
     }
     public static final class style {
         /** 
@@ -167,14 +292,166 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080000;
+        public static final int AppBaseTheme=0x7f0a0000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080001;
-        public static final int CropButton=0x7f080003;
-        public static final int TagTheme=0x7f080002;
+        public static final int AppTheme=0x7f0a0001;
+        public static final int CropButton=0x7f0a0003;
+        public static final int TagTheme=0x7f0a0002;
+        public static final int mySpinnerItemStyle=0x7f0a0004;
     }
+    public static final class xml {
+        public static final int authenticator=0x7f040000;
+        public static final int syncadapter=0x7f040001;
+    }
+    public static final class styleable {
+        /** Attributes that can be used with a FlowLayout.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #FlowLayout_debugDraw com.upenn.trainingtracker:debugDraw}</code></td><td></td></tr>
+           <tr><td><code>{@link #FlowLayout_horizontalSpacing com.upenn.trainingtracker:horizontalSpacing}</code></td><td></td></tr>
+           <tr><td><code>{@link #FlowLayout_orientation com.upenn.trainingtracker:orientation}</code></td><td></td></tr>
+           <tr><td><code>{@link #FlowLayout_verticalSpacing com.upenn.trainingtracker:verticalSpacing}</code></td><td></td></tr>
+           </table>
+           @see #FlowLayout_debugDraw
+           @see #FlowLayout_horizontalSpacing
+           @see #FlowLayout_orientation
+           @see #FlowLayout_verticalSpacing
+         */
+        public static final int[] FlowLayout = {
+            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.upenn.trainingtracker.R.attr#debugDraw}
+          attribute's value can be found in the {@link #FlowLayout} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.upenn.trainingtracker:debugDraw
+        */
+        public static final int FlowLayout_debugDraw = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.upenn.trainingtracker.R.attr#horizontalSpacing}
+          attribute's value can be found in the {@link #FlowLayout} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.upenn.trainingtracker:horizontalSpacing
+        */
+        public static final int FlowLayout_horizontalSpacing = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.upenn.trainingtracker.R.attr#orientation}
+          attribute's value can be found in the {@link #FlowLayout} array.
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>horizontal</code></td><td>0</td><td></td></tr>
+<tr><td><code>vertical</code></td><td>1</td><td></td></tr>
+</table>
+          @attr name com.upenn.trainingtracker:orientation
+        */
+        public static final int FlowLayout_orientation = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.upenn.trainingtracker.R.attr#verticalSpacing}
+          attribute's value can be found in the {@link #FlowLayout} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.upenn.trainingtracker:verticalSpacing
+        */
+        public static final int FlowLayout_verticalSpacing = 1;
+        /** Attributes that can be used with a FlowLayout_LayoutParams.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #FlowLayout_LayoutParams_layout_horizontalSpacing com.upenn.trainingtracker:layout_horizontalSpacing}</code></td><td></td></tr>
+           <tr><td><code>{@link #FlowLayout_LayoutParams_layout_newLine com.upenn.trainingtracker:layout_newLine}</code></td><td></td></tr>
+           <tr><td><code>{@link #FlowLayout_LayoutParams_layout_verticalSpacing com.upenn.trainingtracker:layout_verticalSpacing}</code></td><td></td></tr>
+           </table>
+           @see #FlowLayout_LayoutParams_layout_horizontalSpacing
+           @see #FlowLayout_LayoutParams_layout_newLine
+           @see #FlowLayout_LayoutParams_layout_verticalSpacing
+         */
+        public static final int[] FlowLayout_LayoutParams = {
+            0x7f010004, 0x7f010005, 0x7f010006
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.upenn.trainingtracker.R.attr#layout_horizontalSpacing}
+          attribute's value can be found in the {@link #FlowLayout_LayoutParams} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.upenn.trainingtracker:layout_horizontalSpacing
+        */
+        public static final int FlowLayout_LayoutParams_layout_horizontalSpacing = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.upenn.trainingtracker.R.attr#layout_newLine}
+          attribute's value can be found in the {@link #FlowLayout_LayoutParams} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.upenn.trainingtracker:layout_newLine
+        */
+        public static final int FlowLayout_LayoutParams_layout_newLine = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.upenn.trainingtracker.R.attr#layout_verticalSpacing}
+          attribute's value can be found in the {@link #FlowLayout_LayoutParams} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.upenn.trainingtracker:layout_verticalSpacing
+        */
+        public static final int FlowLayout_LayoutParams_layout_verticalSpacing = 2;
+    };
 }

@@ -1,5 +1,7 @@
 package com.upenn.trainingtracker;
 
+import java.util.Calendar;
+
 public class Keys 
 {
 	/**
@@ -39,18 +41,20 @@ public class Keys
     	public static final String CATEGORY_NAME = "category_name";
     	public static final String COMPLETED = "completed";
     	public static final String PLANNED = "planned";
+    	public static final String VERSION_NUMBER = "version_number";
     }
     public static class CategoryKeys
     {
     	public static final String SESSION_DATE = "session_date";
     	public static final String PLAN = "plan";
-    	public static final String TRIALS_PASSED = "trials_passed";
-    	public static final String TRIALS_FAILED = "trials_failed";
+    	public static final String TRIALS_RESULT = "trials_result";
     	public static final String SYNCED = "is_synced";
+    	public static final String TRAINER_USERNAME = "trainer_username";
     }
     public static class SyncKeys
     {
-    	public static final String CATEGORY_TABLE_NAME = "category_name";
+    	public static final String CATEGORY_KEY = "category_name";
+    	public static final String DOG_ID = "dog_id";
     }
     public static String getTableNameForCategory(String category, int dogID)
     {
@@ -60,8 +64,26 @@ public class Keys
     	
     	return catKey + "_" + dogID;
     }
+    public static String getTableNameForCatKey(String catKey, int dogID)
+    {
+    	return catKey + "_" + dogID;
+    }
     public static String getSkillsTableName(int dogID)
     {
     	return "skills_table_" + dogID;
+    }
+    public static String getCurrentDateString()
+    {
+		Calendar c = Calendar.getInstance(); 
+		int month = c.get(Calendar.MONTH) + 1;
+		int day = c.get(Calendar.DAY_OF_MONTH);
+		int year = c.get(Calendar.YEAR);
+		
+		int hours = c.get(Calendar.HOUR_OF_DAY);
+		int minutes = c.get(Calendar.MINUTE);
+		int second = c.get(Calendar.SECOND);
+		String dateString = month + "-" + day + "-" + year + "-" + hours + ":" + minutes + ":" + second;
+		
+		return dateString;
     }
 }

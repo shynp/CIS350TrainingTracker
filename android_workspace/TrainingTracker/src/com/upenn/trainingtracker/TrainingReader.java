@@ -19,17 +19,28 @@ public class TrainingReader
 	
 	private static TrainingReader reader;
 	private ArrayList<String> parentCategories;
+	// Parent is like FOB and sub category such as Heel
 	private HashMap<String, List<String>> parentToSub;
+	private Map<String, String> subToParent = new HashMap<String, String>();
 	/* The key is the string that is used when creating the table for this category
 	 * We didn't use the category string itself since this would have spaces etc.
 	 * and could also be subject to change
 	 */
-	private HashMap<String, String> categoryToKey;
-	private HashMap<String, String> subToFileName;
-	private HashMap<String, ArrayList<PlanEntry>> categoryToComposition;
+	// Such as heel, Walk it plank, etc.
+	private Map<String, String> categoryToKey;
+	private Map<String, String> keyToCategory;
+	
+	// Sub as heel, Walk it plank, etc
+	private Map<String, String> categoryKeyToFileName;
+	private Map<String, ArrayList<PlanEntry>> catKeyToCompositionList;
+	private Map<String, Map<String,PlanEntry>> catKeyToCompositionMap;
 	private boolean isInitialized;
 	
 	private Context activity;
+	
+	public enum CompositionType{
+		List, Map
+	}
 	
 	private TrainingReader(Context activity)
 	{
@@ -37,13 +48,32 @@ public class TrainingReader
 		this.parentCategories = new ArrayList<String>();
 		this.parentToSub = new HashMap<String, List<String>>();
 		this.categoryToKey = new HashMap<String, String>();
-		this.subToFileName = new HashMap<String,String>();
-		this.categoryToComposition = new HashMap<String, ArrayList<PlanEntry>>();
+		this.categoryKeyToFileName = new HashMap<String,String>();
+		this.keyToCategory = new HashMap<String, String>();
+		
+		this.catKeyToCompositionList = new HashMap<String, ArrayList<PlanEntry>>();
+		this.catKeyToCompositionMap = new HashMap<String, Map<String, PlanEntry>>();
+	}
+	public String getParentCatFromChild(String catKey)
+	{
+		if (this.subToParent.get(catKey) == null)
+		{
+			Log.i("TAG","RETURNING NULL");
+		}
+		return this.subToParent.get(catKey);
 	}
 	public String categoryToCatKey(String category)
 	{
 		Log.i("TAG","Getting cateogry key for: " + category);
 		return this.categoryToKey.get(category);
+	}
+	public String catKeyToCategory(String catKey)
+	{
+		return this.keyToCategory.get(catKey);
+	}
+	public boolean isInitialized()
+	{
+		return this.isInitialized;
 	}
 	public static TrainingReader getInstance(Context activity)
 	{
@@ -83,23 +113,42 @@ public class TrainingReader
 		}
 		return this.parentToSub.get(parentCategory);
 	}
-	public ArrayList<PlanEntry> getViewCompositionByCategory(String category)
+	public List<PlanEntry> getViewCompositionListByCategoryKey(String categoryKey)
 	{
-		if (this.categoryToComposition.containsKey(category))
+		this.initializeCateogryInfo(categoryKey);
+		return this.catKeyToCompositionList.get(categoryKey);
+	}
+	public Map<String, PlanEntry> getViewCompositionMapByCategoryKey(String categoryKey)
+	{
+		this.initializeCateogryInfo(categoryKey);
+		return this.catKeyToCompositionMap.get(categoryKey);
+	}
+	/*
+	 * Initialize info for a particular caregory (ex. Heel). Initializes both catKeyToCompositionList and
+	 * catKeyToCompositionMap
+	 */
+	public void initializeCateogryInfo(String categoryKey)
+	{
+		// Check if already initialized
+		if (this.catKeyToCompositionList.containsKey(categoryKey))
 		{
-			return this.categoryToComposition.get(category);
+			return;
 		}
-		if(!subToFileName.containsKey(category)) throw new IllegalArgumentException("Categor does not exist: " + category);
-		String fileName = subToFileName.get(category);
+		
+		if(!this.categoryKeyToFileName.containsKey(categoryKey)) throw new IllegalArgumentException("Categor does not exist: " + categoryKey);
+		String fileName = this.categoryKeyToFileName.get(categoryKey);
+		
+		// INITIALIZATION
 		Log.i("TAG","For file: " + fileName);
 		BufferedReader in = null;
-		
 		try {
 			in = new BufferedReader(new InputStreamReader(activity.getAssets().open(fileName)));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		Scanner sc = new Scanner(in);
+		
+		// LINE SKIPPING
 		// Skip the first line that says "Session"
 		sc.nextLine(); 
 		int numSessionLines = Integer.parseInt(sc.nextLine());
@@ -107,7 +156,9 @@ public class TrainingReader
 		for (int index = 0; index < numSessionLines; ++index) sc.nextLine(); 
 		sc.nextLine(); // Skip the line that says "Trials"
 
+		// INITIALIZE DATA STRUCTURES
 		ArrayList<PlanEntry> entries = new ArrayList<PlanEntry>();
+		Map<String, PlanEntry> entryMap = new HashMap<String, PlanEntry>();
 
 		int numTrials = Integer.parseInt(sc.nextLine());
 
@@ -133,10 +184,11 @@ public class TrainingReader
 			{
 				PlanEntry entry = new PlanEntry(name, nameKey, type);
 				entries.add(entry);
+				entryMap.put(nameKey, entry);
 				continue;
 			}
 			int numOptions = Integer.parseInt(parts[2]);
-			if (parts.length != numOptions + 3) 
+			if (parts.length != numOptions + 3)
 			{
 				Log.i("TAG", "INVALID LINE: " + line);
 				for (String str : parts)
@@ -163,9 +215,11 @@ public class TrainingReader
 
 			PlanEntry entry = new PlanEntry(name, nameKey, type, options, optionKeys);
 			entries.add(entry);
+			entryMap.put(nameKey, entry);
 		}
-		this.categoryToComposition.put(category, entries);
-		return entries;
+		
+		this.catKeyToCompositionList.put(categoryKey, entries);
+		this.catKeyToCompositionMap.put(categoryKey, entryMap);		
 	}
 	private void initializeParentAndSubCategories()
 	{
@@ -191,9 +245,11 @@ public class TrainingReader
     			String subValue = sc.next();
     			String[] parts = subValue.split(Pattern.quote("||"));
     			if (parts.length != 3) throw new IllegalArgumentException("All subcategories must have key and filename: " + subValue);
-    			this.subToFileName.put(parts[0].trim(), parts[2].trim());
+    			this.categoryKeyToFileName.put(parts[1].trim(), parts[2].trim());
     			subList.add(parts[0].trim());
         		this.categoryToKey.put(parts[0].trim(), parts[1]);
+        		this.keyToCategory.put(parts[1].trim(), parts[0].trim());
+        		this.subToParent.put(parts[1].trim(), category);
     		}
     		this.parentToSub.put(category, subList);
     	}
